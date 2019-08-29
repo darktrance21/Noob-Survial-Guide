@@ -1,0 +1,21 @@
+<link href="styles/prism-dark.css" rel="stylesheet" type="text/css">
+<div class="menu-title">
+    <span class="color-highlight">Check out our pages</span>
+    <h1>Navigation</h1>
+    <a href="#" class="menu-hide"><i class="fa fa-times"></i></a>
+</div>
+	    <pre><code class="language-bash"><strong>if [ "$#" -ne 3 ]; then
+	echo "Usage: nmap-tcp-full.sh <TCP-QUICK-RESULTS.XML> <TARGET> <OUTPUT-FILENAME>"
+	exit 1
+fi
+nmap -nvv -Pn -sSV -T1 -p$(cat $1 | grep portid | grep protocol=\"tcp\" | cut -d'"' -f4 | paste -sd "," -) --version-intensity 9 -A -oA $3 $2
+</strong></code></pre></p>
+</div>
+<script type="text/javascript" src="scripts/prism-dark.js"></script>
+<script type="text/javascript">
+    $('#menu-hider, .close-menu, .menu-hide').on('click',function(){
+        $('.menu-box').removeClass('menu-box-active');
+        $('#menu-hider').removeClass('menu-hider-active');
+        return false;
+    });
+</script>

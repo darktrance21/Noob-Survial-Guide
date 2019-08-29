@@ -1,0 +1,62 @@
+<link href="styles/prism-dark.css" rel="stylesheet" type="text/css">
+<div class="menu-title">
+    <span class="color-highlight">Check out our pages</span>
+    <h1>Navigation</h1>
+    <a href="#" class="menu-hide"><i class="fa fa-times"></i></a>
+</div>
+	    <pre><code class="language-bash"><strong># Set variables:
+_hosts="192.168.250.10"
+_ports="80,443"
+
+# Set Nmap NSE scripts stack:
+_nmap_nse_scripts="+dns-brute,\
+                   +http-auth-finder,\
+                   +http-chrono,\
+                   +http-cookie-flags,\
+                   +http-cors,\
+                   +http-cross-domain-policy,\
+                   +http-csrf,\
+                   +http-dombased-xss,\
+                   +http-enum,\
+                   +http-errors,\
+                   +http-git,\
+                   +http-grep,\
+                   +http-internal-ip-disclosure,\
+                   +http-jsonp-detection,\
+                   +http-malware-host,\
+                   +http-methods,\
+                   +http-passwd,\
+                   +http-phpself-xss,\
+                   +http-php-version,\
+                   +http-robots.txt,\
+                   +http-sitemap-generator,\
+                   +http-shellshock,\
+                   +http-stored-xss,\
+                   +http-title,\
+                   +http-unsafe-output-escaping,\
+                   +http-useragent-tester,\
+                   +http-vhosts,\
+                   +http-waf-detect,\
+                   +http-waf-fingerprint,\
+                   +http-xssed,\
+                   +traceroute-geolocation.nse,\
+                   +ssl-enum-ciphers,\
+                   +whois-domain,\
+                   +whois-ip"
+
+# Set Nmap NSE script params:
+_nmap_nse_scripts_args="dns-brute.domain=${_hosts},http-cross-domain-policy.domain-lookup=true,"
+_nmap_nse_scripts_args+="http-waf-detect.aggro,http-waf-detect.detectBodyChanges,"
+_nmap_nse_scripts_args+="http-waf-fingerprint.intensive=1"
+
+# Perform scan:
+nmap --script="$_nmap_nse_scripts" --script-args="$_nmap_nse_scripts_args" -p "$_ports" "$_hosts"</strong></code></pre></p>
+</div>
+<script type="text/javascript" src="scripts/prism-dark.js"></script>
+<script type="text/javascript">
+    $('#menu-hider, .close-menu, .menu-hide').on('click',function(){
+        $('.menu-box').removeClass('menu-box-active');
+        $('#menu-hider').removeClass('menu-hider-active');
+        return false;
+    });
+</script>
